@@ -56,3 +56,7 @@ class Stream:
             self._pkt_time_list = []
             for p in self.packets:
                 self._pkt_time_list.append(p.time)
+
+    def pkt_index_size(self):
+        self._make_pkt_list()
+        return pd.Series(self._pkt_size_list, index=self._pkt_time_list)

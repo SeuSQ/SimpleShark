@@ -9,7 +9,7 @@ from Layers.IPv4 import IPv4
 from Layers.ISAKMP import ISAKMP
 from Layers.TCP import TCP
 from Layers.UDP import UDP
-from Packet import Packet
+from Core.Packet import Packet
 
 
 def ReadPcap(path, dis_filter=None):
