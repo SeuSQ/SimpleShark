@@ -1,4 +1,5 @@
 import sys
+import time
 
 import pyshark
 
@@ -36,6 +37,7 @@ def ReadPcap(path, dis_filter=None):
         return None
 
     i = 1
+    start_time = time.time()
     for p in cap:
         # 判断是否包含传输层协议，如果没有这个数据包会被直接舍弃
         sys.stdout.write('\rNow at packet #%d' % i)
@@ -89,7 +91,11 @@ def ReadPcap(path, dis_filter=None):
             # TSL\SSL\GQUIC\HTTP(S)
 
         packets.append(pobj)
-    print('\nCompleted')
+    end_time = time.time()
+    use_time = end_time - start_time
+    speed = i / use_time
+    print('\nParse packets completed, speed: %dpps' % int(speed))
+    print('======================================\n')
     return packets
 
 
