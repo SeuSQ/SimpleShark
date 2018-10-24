@@ -41,10 +41,10 @@ class TransportStream(Stream):
         self.__buffer = {}
 
     def __repr__(self):
-        if self.direct is not None:
-            return '<%sStream #%d>' % (self.protocol.upper(), self.stream_id)
+        if self.direct is None:
+            return '<%sStream #%d>' % (self.protocol.upper(), int(self.stream_id)) + self.side_a + ':' + self.port_a + '--' + self.side_b + ':' + self.port_b
         else:
-            return '<%sStream #%d(%s)>' % (self.protocol.upper(), self.stream_id, self.direct)
+            return '<%sStream #%d(%s)>' % (self.protocol.upper(), int(self.stream_id), self.direct) + self.side_a + ':' + self.port_a + '--' + self.side_b + ':' + self.port_b
 
     def follow(self, direct):
         """
