@@ -11,7 +11,7 @@ packet_list = ReadPcap(path)
 
 stream_ext = StreamExtractor(packet_list)
 
-stream_list = stream_ext.ex_ip_stream()
+stream_list = stream_ext.ex_tcp_stream()
 
 stream = stream_list[1]
 

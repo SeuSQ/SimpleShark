@@ -22,7 +22,7 @@ class TransportStream(Stream):
         对象本身无返回，调用follow函数将返回被跟踪方向的子流对象
     """
     def __init__(self, protocol, side_a, side_b, port_a, port_b, plist, stream_id, direct=None):
-        Stream.__init__(stream_id, side_a, side_b, plist, direct)
+        Stream.__init__(self, stream_id, side_a, side_b, plist, direct)
         self.protocol = protocol
         self.port_a = port_a
         self.port_b = port_b
